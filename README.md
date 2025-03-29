@@ -1,8 +1,8 @@
 # user-management-api
 
-Members:
+#Members:
 
-Recamel Flores
-Jovan Gocela
-Jamaica Lapad
-Felix Ragas Jr.
+#Recamel Flores
+#Jovan Gocela
+#Jamaica Lapad
+#Felix Ragas Jr.
