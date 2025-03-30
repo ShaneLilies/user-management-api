@@ -6,7 +6,7 @@ import { newUser } from 'entities/User.interface';
 import { User } from '../entities/User'
 const router: express.Router = express.Router();
 
-//POST request
+
 router.post("/", createSchema, async (req : Request, res : Response, next : NextFunction) => {
   const user : newUser = req.body;
   if(await database.User.findOne({where: {username: user.username}})){
@@ -56,5 +56,4 @@ function updateSchema(req: Request, res: Response, next: NextFunction) {
     });
     validateRequest(req, next, schema);
   }
-
 export default router;
