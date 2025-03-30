@@ -39,6 +39,18 @@ router.put("/:id", updateSchema, async  (req : Request, res : Response, next : N
   res.json({message: "User updated successfully!"})
 })
 
+//Delete user
+router.delete('/:id', async  (req : Request, res : Response, next : NextFunction) =>{
+  const { id } = req.params;
+  const user = await database.User.findOneBy({id: +id});
+  if(!user){
+      res.json({message: "User not found!"});
+      return;
+   }
+  await user.remove()
+  res.json({message: "User deleted successfully!"})
+})
+
 function createSchema(req: Request, res: Response, next: NextFunction) {
     const schema = Joi.object({
         firstname: Joi.string().required(),
