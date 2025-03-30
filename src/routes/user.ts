@@ -51,6 +51,17 @@ router.delete('/:id', async  (req : Request, res : Response, next : NextFunction
   res.json({message: "User deleted successfully!"})
 })
 
+//GET all Users
+router.get("/", async (req : Request, res : Response, next : NextFunction) => {
+  res.json({users: await database.User.find()});
+})
+
+//Get one User
+router.get("/:id", async (req : Request, res : Response, next : NextFunction) =>{
+  const { id } = req.params;
+  res.json({user: await database.User.findOneBy({id: +id})})
+})
+
 function createSchema(req: Request, res: Response, next: NextFunction) {
     const schema = Joi.object({
         firstname: Joi.string().required(),
