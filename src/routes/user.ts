@@ -79,5 +79,5 @@ function updateSchema(req: Request, res: Response, next: NextFunction) {
     });
     validateRequest(req, next, schema);
   }
-
+  
 export default router;
